@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <form action="formulario.php" method="post">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required="required"><br>
+            <label for="apellidos">Apellidos:</label><br>
+            <input type="text" id="apellidos" name="apellidos" required="required"><br><br>
+            <label for="email">E-mail: </label><br>
+            <input type="text" id="email" name="email" required="required"><br><br>
+            <label for="url">URL: </label><br>
+            <input type="text" id="url" name="url"><br><br>
+            
+            <input type="radio" id="hombre" name="sexo" value="Hombre" required>
+            <label for="hombre">Hombre</label><br>
+            <input type="radio" id="mujer" name="sexo" value="Mujer">
+            <label for="mujer">Mujer</label><br>
+            <input type="radio" id="otro" name="sexo" value="Otro">
+            <label for="otro">Otro</label>
+            <br>
+            <label for="convivientes">Nº de convivientes: </label><br>
+            <input type="number" id="convivientes" name="convivientes" required="required"><br><br>
+            
+            <input type="checkbox" id="clarinete" name="clarinete" value="Tocar el clarinete">
+            <label for="clarinete">Tocar el clarinete</label><br>
+            <input type="checkbox" id="pesca" name="pesca" value="Pescar">
+            <label for="pesca">Pescar</label><br>
+            <input type="checkbox" id="jardin" name="jardin" value="La jardinería">
+            <label for="jardin">La jardinería</label><br> 
+            <input type="checkbox" id="danza" name="danza" value="Danza interpretativa">
+            <label for="danza">Danza interpretativa</label><br> 
+            
+            <label for="menu">Menú favorito: </label>
+            <select name="menu" id="menu" multiple required="required">
+                <option value="Carne">Carne</option>
+                <option value="Pescado">Pescado</option>
+                <option value="Marisco">Marisco</option>
+                <option value="Verdura">Verdura</option>
+            </select>
+            <br>
+            <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </body>
+</html>

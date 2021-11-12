@@ -1,0 +1,18 @@
+div {
+    padding: 10px;
+    border: 3px solid #112277;
+    background-color: white;
+    margin: 20px;
+    float: left;
+    border-radius: 6px;
+}
+
+table, tr, td {
+    border: 1px solid #000000;
+}
+table {
+    background-color: orange;
+}
+td {
+    background-color: #FFFFFF;
+}
