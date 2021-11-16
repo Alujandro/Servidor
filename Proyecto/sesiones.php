@@ -6,3 +6,7 @@ function comprobar_sesion(){
         header("Location: login.php?redirigido=true");
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 13f9a24554bb47813b93f63ade27db5a70d09fbf
