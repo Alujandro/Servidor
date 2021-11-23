@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/var/www/html/Proyecto/categorias.php</file>
+            <file>file:/var/www/html/Proyecto/eliminar.php</file>
             <file>file:/var/www/html/Proyecto/sesiones.php</file>
+            <file>file:/var/www/html/Proyecto/anadir.php</file>
+            <file>file:/var/www/html/Proyecto/productos.php</file>
+            <file>file:/var/www/html/Proyecto/bd.php</file>
+            <file>file:/var/www/html/Proyecto/procesar_pedido.php</file>
+            <file>file:/var/www/html/Proyecto/cabecera.php</file>
             <file>file:/var/www/html/Proyecto/login.php</file>
+            <file>file:/var/www/html/Proyecto/carrito.php</file>
         </group>
     </open-files>
 </project-private>

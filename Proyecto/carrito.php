@@ -12,7 +12,7 @@ comprobar_sesion();
     <body>
         <?php
         require 'cabecera.php';
-        $productos=ccargar_productos(array_keys($_SESSION['carrito']));
+        $productos=cargar_productos(array_keys($_SESSION['carrito']));
         if($productos===false){
             echo "<p>No hay productos en el pedido</p>";
             exit;

@@ -7,14 +7,14 @@ comprobar_sesion();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Tabla de productos por categoria</title>
+        <title>Tabla de productos por categoría</title>
     </head>
     <body>
         <?php
         require 'cabecera.php';
         $categorias=cargar_categoria($_GET['categoria']);
         $productos=cargar_productos_categoria($_GET['categoria']);
-        if($cat===false or $productos===false){
+        if($categorias===false or $productos===false){
             echo "<p class='error'>Error al conectar con la base de datos</p>";
             exit;
         }
