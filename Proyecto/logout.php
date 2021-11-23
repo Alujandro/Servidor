@@ -1,8 +1,18 @@
 <?php
 
-session_start();
+require_once 'sesiones.php';
+comprobar_sesion();
+$_SESSION=array();
 session_destroy();
-header("Location: login.php");
-
-//Mejorar añadiendo un aviso de haber cerrado la sesión y, posiblemente, añadir una cookie que te pueda guardar el carrito de la compra, aunque no debería hacerlo
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sesión cerrada</title>
+    </head>
+    <body>
+        <p>La sesión se cerró correctamente, hasta la próxima</p>
+        <a href="login.php">Ir a la página de login</a>
+    </body>
+</html>
