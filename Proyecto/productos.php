@@ -31,7 +31,8 @@ comprobar_sesion();
                 $stock=$producto['Stock'];
                 echo "<tr><td>$nom</td><td>$des</td><td>$peso</td><td>$stock</td>"
                         . "<td><form action='anadir.php' method='POST'>"
-                        . "<input name='unidades' type='number' min= '1' value='1'>"
+                        . "<input name='unidades' type='number' min= '1' max='$stock' value='1'>" //Actualización para evitar que se pueda introducir un valor mayor al stock que queda
+                        . "<input name='cat' type='hidden' value='".$_GET['categoria']."'>" //Añadimos un hidden input que nos dice la categoría de la página en la que nos encontramos para enviarla a anadir.php
                         . "<input type='submit' value='Comprar'><input name='cod' type='hidden' value='$cod'>"
                         . "</form></td></tr>";
                      

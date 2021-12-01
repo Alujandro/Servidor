@@ -37,6 +37,6 @@ comprobar_sesion();
         echo "</table>";
         ?>
         <hr>
-        <a href="procesar_pedido.php">Realizar pedido</a>
+        <a href="confirmar_pedido.php">Realizar pedido</a>
     </body>
 </html>

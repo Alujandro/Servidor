@@ -56,7 +56,7 @@ function cargar_categoria($codCat){
 function cargar_productos_categoria($codCat){
     try{
         $bd=new PDO(CADENA_CONEXION, USUARIO_CONEXION, CLAVE_CONEXION);
-        $sql="SELECT * FROM productos WHERE CodCat=$codCat";
+        $sql="SELECT * FROM productos WHERE CodCat=$codCat AND Stock>0"; //Actualización de la consulta para que no se muestren los productos de los que no queda stock
         $resul=$bd->query($sql);
         if (!$resul){
             return false;
@@ -103,6 +103,13 @@ function insertar_pedido($carrito, $codRes){
                 $bd->rollBack();
                 return false;
             }
+            //Inicio del código para cambiar el stock de la base de datos
+            $sql="UPDATE productos SET Stock=Stock-$unidades WHERE CodProd=$codProd";
+            $resul2=$bd->exec($sql);
+            if(!$resul2){
+                $bd->rollBack();
+            return false;
+            }//Fin del código de actualización de stock
         }
         $bd->commit();
         return $pedido;
