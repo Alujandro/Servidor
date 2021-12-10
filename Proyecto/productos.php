@@ -23,18 +23,36 @@ comprobar_sesion();
             echo "<p>". $cat['descripcion']."</p>";
             echo "<table>";
             echo "<tr><th>Nombre</th><th>Descripción</th><th>Peso</th><th>Stock</th><th>Comprar</th></tr>";
+            $lista=0;
             foreach($productos as $producto){
                 $cod=$producto['CodProd'];
                 $nom=$producto['Nombre'];
                 $des=$producto['Descripcion'];
                 $peso=$producto['Peso'];
-                $stock=$producto['Stock'];
+                $unidades=$_SESSION['carrito'][$cod];
+                $stock=$producto['Stock']-$unidades; //Esta parte evita que se puedan escoger más productos de los que hay
+                //He decidido cambiar el formulario para añadir al carro de la compra por una barra deslizante (también para eliminar en el carro)
+                //El principal problema de este método es que para poner números precisos cuando el stock es alto puede ser molesto o difícil, pero te permite
+                //Hacer una elección de una forma rápida e intuitiva únicamente con el ratón, y para números más precisos, con el teclado se puede ajustar de uno en uno.
                 echo "<tr><td>$nom</td><td>$des</td><td>$peso</td><td>$stock</td>"
-                        . "<td><form action='anadir.php' method='POST'>"
-                        . "<input name='unidades' type='number' min= '1' max='$stock' value='1'>" //Actualización para evitar que se pueda introducir un valor mayor al stock que queda
-                        . "<input name='cat' type='hidden' value='".$_GET['categoria']."'>" //Añadimos un hidden input que nos dice la categoría de la página en la que nos encontramos para enviarla a anadir.php
-                        . "<input type='submit' value='Comprar'><input name='cod' type='hidden' value='$cod'>"
-                        . "</form></td></tr>";
+                . "<td><form action='anadir.php' method='POST'>"
+                . "<div class='rangeslider'>" 
+                . "<input name='unidades' type='range' min='1' max='$stock' value='1' class='slider' id='deslizable$lista'>"
+                . "<input type='submit' value='Comprar'>"
+                . " <span id='canti$lista'></span><input name='cod' type='hidden' value='$cod'>"
+                . "</div>"
+                . "<input name='cat' type='hidden' value='".$_GET['categoria']."'>"
+                . "</form></td></tr>"
+                . "<script>
+                    var desl = document.getElementById('deslizable$lista');
+                    var salida$lista = document.getElementById('canti$lista');
+                    salida$lista.innerHTML = desl.value;
+  
+                    desl.oninput = function() {
+                    salida$lista.innerHTML = this.value;
+                    }
+                  </script>";
+                $lista++;
                      
             } 
         }
