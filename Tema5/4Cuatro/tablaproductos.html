@@ -14,10 +14,10 @@ and open the template in the editor.
         <div id="salida"></div>
         <script>
             //Creación de función creaTabla que saca una tabla con los productos de la categoría que se le pasa
-            const categorias=["Platos e ingredientes","Bebidas sin alcohol", "Bebidas con alcohol"];
+            var categorias=[];
             function creaTabla(obj,cat){
-                let h1=document.createElement("h1");
-                h1.innerHTML=categorias[cat-1];
+                let h1=document.createElement("h1");    //Crea el título de la tabla
+                h1.innerHTML=categorias[cat-1];         //Introduce la categoría correspondiente en el título
                 document.getElementById("salida").appendChild(h1);
                 let tabla=document.createElement("table"); //Crea la tabla
                 let cabecera=document.createElement("thead");   //Crea la cabecera de la tabla
@@ -26,9 +26,9 @@ and open the template in the editor.
                 for (let i=0; i<obj.length; i++){   //Recorre el array de objetos
                     
                     let fila=document.createElement("tr");  //Creamos la línea que contendrá los datos
-                    for (let j=0; j<5; j++){
-                        if (obj[i][5]==cat){
-                        let celda=document.createElement("td");
+                    for (let j=0; j<5; j++){    //Es menor que 5 en vez de todos sus valores porque en el 5 empiezan datos que no necesitamos
+                        if (obj[i][5]==cat){    //obj[i][5] se corresponde con el código de la categoría del objeto
+                        let celda=document.createElement("td"); //Creamos la celda que contendrá el dato obtenido
                         celda.innerHTML=obj[i][j];  //Recuerda, innerHTML es con HTML en mayúsculas
                         fila.appendChild(celda);
                         }
@@ -38,18 +38,34 @@ and open the template in the editor.
                 document.getElementById("salida").appendChild(tabla);
             }
             
-            //Código AJAX para recibir la consulta
+            //Código AJAX para recibir la consulta de productos
             var xhttp=new XMLHttpRequest();
-            xhttp.open("GET", "bd.php", false);
+            xhttp.open("GET", "productos.php", false);
             xhttp.send();
             if (xhttp.status === 200){
                 
             } else {
                 alert("Error");
             }
-            let lleison=JSON.parse(xhttp.response);
-            let sal=document.getElementById("salida");
-            console.log(lleison); //Escribe el JSON por consola
+            var lleison=JSON.parse(xhttp.response); //Guardamos el JSON para despues pasarlo a la función creaTabla
+            
+            //Código AJAX para recibir la consulta de categorias
+            var http=new XMLHttpRequest();
+            http.open("GET", "categorias.php", false);
+            http.send();
+            if (http.status === 200){
+                
+            } else {
+                alert("Error");
+            }
+            let lleison2=JSON.parse(http.response);
+
+            //Código para guardar las categorías
+            for (let i=0; i<lleison2.length; i++){
+                categorias.push(lleison2[i][1]);    //Guardamos las categorías, que se encuentran en la posición 1 del objeto obtenido del JSON en la variable categorías
+            }
+            
+            //Código para escribir las tablas
             for (let i=1; i<=categorias.length; i++){
                 creaTabla(lleison, i); //Escribe el JSON en forma de tabla
             }
