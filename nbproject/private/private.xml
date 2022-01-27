@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/Tema5/4Cuatro/productos.php</file>
-            <file>file:/var/www/html/Tema5/4Cuatro/tablaproductos.html</file>
-            <file>file:/var/www/html/Tema5/4Cuatro/categorias.php</file>
+            <file>file:/var/www/html/Proyecto2/css/estilos.css</file>
+            <file>file:/var/www/html/Proyecto2/cabecera_json.php</file>
+            <file>file:/var/www/html/Proyecto2/js/cargarDatos.js</file>
+            <file>file:/var/www/html/Proyecto2/una_sola_pagina_1.php</file>
+            <file>file:/var/www/html/Proyecto2/pedidos_json.php</file>
+            <file>file:/var/www/html/Proyecto2/eliminar_json.php</file>
+            <file>file:/var/www/html/Proyecto2/carrito_json.php</file>
         </group>
     </open-files>
 </project-private>
